@@ -18,15 +18,16 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:orientation="vertical"
+       android:background="#F0F0F0"
        android:padding="5dp">
 
       <TextView
           android:id="@+id/title"
-
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:padding="5dp"
           android:text="Title"
+          android:textSize="16dp"
           android:textStyle="bold" />
 
       <TextView

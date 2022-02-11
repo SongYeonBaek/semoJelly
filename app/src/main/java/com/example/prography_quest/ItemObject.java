@@ -37,14 +37,4 @@ public class ItemObject {
         return image;
     }
 
-    /*
-    public static ArrayList<ItemObject> createContactsList(int numContacts) {
-        ArrayList<ItemObject> contacts = new ArrayList<ItemObject>();
-
-        for (int i = 1; i <= numContacts; i++) {
-            contacts.add(new ItemObject("Pororo ", "me", "I love prororo", "i", "s"));
-        }
-
-        return contacts;
-    } */
 }

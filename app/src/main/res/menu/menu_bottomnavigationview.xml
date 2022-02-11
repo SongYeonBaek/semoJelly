@@ -6,9 +6,6 @@
         />
     <item
         android:id="@+id/bytitle"
-        android:title="byscore"
+        android:title="bytitle"
         />
-    <item
-        android:id="@+id/bookmark"
-        android:title="bookmark" />
 </menu>

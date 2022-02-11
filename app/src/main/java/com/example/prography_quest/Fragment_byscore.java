@@ -28,9 +28,7 @@ public class Fragment_byscore extends Fragment{
     private String htmlstring;
 
     private RecyclerView recyclerView;
-    //private RecyclerAdapter adapter;
     private ArrayList<ItemObject> list = new ArrayList<>();
-
 
     @Nullable
     @Override
@@ -39,12 +37,7 @@ public class Fragment_byscore extends Fragment{
         View v1 = inflater.inflate(R.layout.fragment_byscore, container, false);
         recyclerView = (RecyclerView) v1.findViewById(R.id.recyclerview);
 
-        RecyclerAdapter recyclerAdapter = new RecyclerAdapter(list);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerAdapter);
-
-        //AsyncTask 작동시킴(파싱)
+        //AsyncTask execute (url 파싱)
         new JsoupAsync().execute();
 
         return v1;
@@ -59,36 +52,36 @@ public class Fragment_byscore extends Fragment{
         @Override
         protected Void doInBackground(Void... params) {
             try {
+                //url 연결
                 Document doc = Jsoup.connect(url).ignoreContentType(true).get();
-                Log.e("여기까지 실행됨","여기이이 ");
                 Elements elements = doc.select("body");
 
                 for(Element link : elements){
                     htmlstring += link.text().trim() + "( )";
-                    Log.e("link : ", String.valueOf(link));
+                    Log.e("link ", String.valueOf(link));
                     break;
                 }
+                //파싱한 결과를 Recycler view에 넣는 것을 실패하여
+                //Log로 출력을 대신했습니다!
+                Log.e("파싱한 결과 ", htmlstring);
 
-                list.add(new ItemObject("proro","me", "i love crong", "100", "crong"));
-
-            } catch (IOException e){
+            } catch(IOException e){
                 e.printStackTrace();
-                Log.e("여기는 ", "예외 걸림");
             }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void unused) {
+            //이 부분에서 오류가 나서 AVD가 돌아가지 않아 주석처리했습니다.
             /*
-            //ArrayList을 인자로해서 어답터와 연결한다
+            //ArrayList을 인자로해서 어답터와 연결
             RecyclerAdapter recyclerAdapter = new RecyclerAdapter(list);
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(recyclerAdapter);
-            */
 
-            Log.e("htmlstring은 ", htmlstring);
+             */
         }
     }
 

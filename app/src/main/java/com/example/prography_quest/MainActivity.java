@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment_byscore).commitAllowingStateLoss();
 
-        //bottomNavigationView의 아이템이 선택될때 호출될 리스너 등록
+        //bottomNavigationView의 아이템이 선택될때 호출될 리스너
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
